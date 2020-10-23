@@ -1,0 +1,32 @@
+﻿<Page
+    x:Class="Maps.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Maps"
+    xmlns:Maps="using:Windows.UI.Xaml.Controls.Maps"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200*"/>
+            <ColumnDefinition Width="35*"/>
+        </Grid.ColumnDefinitions>
+
+        <Maps:MapControl x:Name="myMap" 
+                         MapServiceToken="PELJoqlCSAsAhb3q4SP6~TMHVXIctZp1T_Ha8NPDdXQ~AhNyOg4JEQKG_6Nue8kYsGzlcKSC1HOhZFak3tkCmhYMqKLV7h0sqAMxceveex0u"
+                         ZoomLevel="{Binding ElementName=ZoomSlider,Path=Value,Mode=TwoWay}"
+                         />
+        <StackPanel Grid.Column="1" HorizontalAlignment="Center">
+            <Button Click="Button_Click" Height="77" Width="115" HorizontalAlignment="Center">Home</Button>
+            <RadioButton x:Name="Roads" GroupName="Radio" Click="Roads_Click" Content="Roads" Padding="15"/>
+            <RadioButton x:Name="Satellite" GroupName="Radio" Click="Roads_Click" Content="Satellite" Padding="15"/>
+            <RadioButton x:Name="Hybrid" GroupName="Radio" Click="Roads_Click" Content="Hybrid" Padding="15"/>
+            <RadioButton x:Name="Dark" GroupName="Radio" Click="Roads_Click" Content="Dark" Padding="15"/>
+            <Slider Minimum="1" Maximum="30" Header="Zoom" Name="ZoomSlider" Value="12"/>
+        </StackPanel>
+
+    </Grid>
+</Page>
